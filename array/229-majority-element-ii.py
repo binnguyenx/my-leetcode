@@ -27,17 +27,13 @@ class Solution:
             else:
                 count1 -= 1
                 count2 -= 1
-
-        count1 = count2 = 0
-        for num in nums:
-            if num == cand1:
-                count1 += 1
-            elif num == cand2:
-                count2 += 1
-
+        # checking if it more than n / 3
+        target = len(nums) / 3
         res = []
-        if count1 > len(nums) // 3:
+        actual_count_1 = nums.count(cand1) if cand1 is not None else 0
+        actual_count_2 = nums.count(cand2) if cand2 is not None else 0
+        if actual_count_1 > target:
             res.append(cand1)
-        if count2 > len(nums) // 3:
+        if actual_count_2 > target and cand1 != cand2:
             res.append(cand2)
         return res
