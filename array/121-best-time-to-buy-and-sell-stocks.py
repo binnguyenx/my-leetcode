@@ -4,7 +4,7 @@ class Solution:
         n = len(prices)
         l = 0
         for r in range(1, n):
-            #checking for the minimum of l
+            #checking for the minimum of left
             if prices[r] < prices[l]:
                 l = r
             else:
