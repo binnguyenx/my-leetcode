@@ -6,11 +6,11 @@ class Solution:
         profit = 0
         i = 0
         while i < n - 1:
-            #dùng để chặn dưới, check dấu <
+            #dùng để chặn dưới, check dấu bé
             while i < n - 1 and prices[i] >= prices[i+1]:
                 i += 1
             low = prices[i]
-            #dùng để chặn trên, check dấu >
+            #dùng để chặn trên, check dấu lớn
             while i < n - 1 and prices[i] <= prices[i+1]:
                 i += 1
             high = prices[i]
