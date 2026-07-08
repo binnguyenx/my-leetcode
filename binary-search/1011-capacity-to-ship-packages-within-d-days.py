@@ -12,6 +12,8 @@ class Solution:
                 if curr + w > m:
                     day_need += 1
                     curr = w
+                    if day_need > days:
+                        break
                 else:
                     curr += w
             if day_need <= days:
