@@ -11,16 +11,13 @@ from typing import Optional
 
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-        if not root:
-            return False
+        def dfs(node, curr_sum):
+            if not node:
+                return False
 
-        targetSum -= root.val
+            curr_sum += node.val
+            if not node.left and not node.right:
+                return curr_sum == targetSum
+            return dfs(node.left, curr_sum) or dfs(node.right, curr_sum)
 
-        # check value when it is leaf
-        if not root.left and not root.right:
-            if targetSum == 0:
-                return True
-            return False
-
-        return (self.hasPathSum(root.left, targetSum) or
-                self.hasPathSum(root.right, targetSum))
+        return dfs(root, 0)
