@@ -6,6 +6,7 @@ class Solution:
         res = []
 
         def backtrack(start, curr):
+            # append each single state
             res.append(curr[:])
             for i in range(start, len(nums)):
                 # choose
@@ -17,3 +18,6 @@ class Solution:
 
         backtrack(0, [])
         return res
+
+        # Time: O(n * 2^n)
+        # Space: O(n)
